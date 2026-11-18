@@ -1,0 +1,21 @@
+{
+  "name": "saas-content-studio-monorepo",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev:web": "pnpm --filter @scs/web dev",
+    "dev:extension": "pnpm --filter @scs/extension dev",
+    "build:shared": "pnpm --filter @scs/shared build",
+    "build:web": "pnpm --filter @scs/web build",
+    "build:extension": "pnpm --filter @scs/extension build",
+    "build": "pnpm build:shared && pnpm build:extension && pnpm build:web"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  }
+}
