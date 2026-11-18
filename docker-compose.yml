@@ -1,0 +1,17 @@
+services:
+  studio-web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    container_name: saas-content-studio
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    volumes:
+      - studio-data:/app/data
+
+volumes:
+  studio-data:
