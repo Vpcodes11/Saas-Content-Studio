@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { PinterestHeader } from '@/components/PinterestHeader';
 import { PinterestHero } from '@/components/PinterestHero';
 import { PinterestBentoPins } from '@/components/PinterestBentoPins';
+import { ChatGPTLiveRunner } from '@/components/ChatGPTLiveRunner';
 import { ExtensionStudioDeck } from '@/components/ExtensionStudioDeck';
 import { DatabaseStudioCard } from '@/components/DatabaseStudioCard';
 import { AestheticRoadmap } from '@/components/AestheticRoadmap';
@@ -68,6 +69,14 @@ export default function HomePage() {
           filter={activeFilter}
           onSendPing={() => sendPing()}
         />
+
+        {/* Step 2: ChatGPT Adapter End-to-End Runner */}
+        <section className="space-y-4 pt-2">
+          <ChatGPTLiveRunner
+            extensionId={extensionId}
+            extensionStatus={extensionStatus}
+          />
+        </section>
 
         {/* Core Step 1 Engine Deck (Hardware/Console Styled) */}
         <section className="space-y-4 pt-4">

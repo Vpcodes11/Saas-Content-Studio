@@ -127,6 +127,30 @@ export type ExtensionRequestMessage =
   | ResumeQueueMessage
   | CheckSiteReadyMessage;
 
+export interface SiteAdapter {
+  site: TargetSite;
+  isReady(): Promise<{ isReady: boolean; isLoggedIn: boolean; error?: string }>;
+  newChat(): Promise<void>;
+  sendPrompt(text: string, attachments?: JobAttachment[]): Promise<void>;
+  waitForCompletion(timeoutMs?: number): Promise<{ completed: boolean; error?: string }>;
+  extractResult(): Promise<{ markdown: string; mediaUrls?: string[] }>;
+}
+
+export interface SiteSelectorConfig {
+  site: TargetSite;
+  url: string;
+  selectors: {
+    loginWall?: string[];
+    captcha?: string[];
+    composer: string[];
+    sendButton: string[];
+    stopButton?: string[];
+    newChatButton?: string[];
+    assistantMessage: string[];
+    markdownContainer?: string[];
+  };
+}
+
 export type ExtensionResponseMessage =
   | PongMessage
   | StatusResponseMessage

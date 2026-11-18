@@ -9,13 +9,13 @@ export function AestheticRoadmap() {
       num: 1,
       title: 'Monorepo & Extension Messaging Round Trip',
       desc: 'pnpm monorepo, Manifest V3 Chrome Extension, Next.js web app, bidirectional externally_connectable & bridge ping/pong, SQLite DB.',
-      status: 'active',
+      status: 'completed',
     },
     {
       num: 2,
       title: 'ChatGPT Adapter End-to-End',
       desc: 'Send "Say hello" from web app, automate chatgpt.com session with realistic human delays & DOM extraction, persist result into DB.',
-      status: 'pending',
+      status: 'active',
     },
     {
       num: 3,
@@ -71,8 +71,8 @@ export function AestheticRoadmap() {
               <p className="text-xs text-slate-400">Strict phased delivery order (Steps 1 &rarr; 8)</p>
             </div>
           </div>
-          <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 uppercase tracking-wider">
-            Step 1 Verified
+          <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 uppercase tracking-wider">
+            Step 2 Active
           </span>
         </div>
 
@@ -118,8 +118,8 @@ export function AestheticRoadmap() {
       </div>
 
       <div className="pt-4 mt-4 border-t border-white/[0.06] flex items-center justify-between text-[11px] text-slate-500">
-        <span>Current Phase: <strong className="text-sky-400">Step 1 Ready</strong></span>
-        <span>Next: <strong className="text-slate-300">Step 2 (ChatGPT Adapter)</strong></span>
+        <span>Current Phase: <strong className="text-emerald-400">Step 2 (ChatGPT Adapter)</strong></span>
+        <span>Next: <strong className="text-slate-300">Step 3 (Gemini Adapter)</strong></span>
       </div>
     </div>
   );

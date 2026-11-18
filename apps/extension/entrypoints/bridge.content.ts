@@ -24,7 +24,6 @@ export default defineContentScript({
       );
     }
 
-    // Announce presence immediately and after DOM content loaded
     broadcastReady();
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', broadcastReady);
@@ -33,7 +32,6 @@ export default defineContentScript({
 
     // Listen to messages from the web dashboard
     window.addEventListener('message', (event) => {
-      // Security check: only accept from same origin
       if (event.source !== window) return;
 
       const data = event.data;
@@ -42,7 +40,6 @@ export default defineContentScript({
       if (data.type === 'SCS_DISCOVER_EXTENSION') {
         broadcastReady();
       } else if (data.type === 'SCS_BRIDGE_PING') {
-        // Forward ping to background script
         chrome.runtime.sendMessage({ type: 'PING', timestamp: data.timestamp || Date.now() }, (response) => {
           window.postMessage(
             {
@@ -54,6 +51,21 @@ export default defineContentScript({
             '*'
           );
         });
+      } else if (data.type === 'SCS_BRIDGE_RUN_JOB') {
+        chrome.runtime.sendMessage(
+          { type: 'FORWARD_TO_EXTERNAL', payload: { type: 'RUN_JOB', job: data.job } },
+          (response) => {
+            window.postMessage(
+              {
+                type: 'SCS_BRIDGE_JOB_RESULT',
+                requestId: data.requestId,
+                response,
+                error: chrome.runtime.lastError?.message,
+              },
+              '*'
+            );
+          }
+        );
       }
     });
   },

@@ -1,0 +1,55 @@
+{
+  "site": "chatgpt",
+  "url": "https://chatgpt.com",
+  "selectors": {
+    "loginWall": [
+      "button[data-testid=\"login-button\"]",
+      "a[href*=\"/auth/login\"]",
+      "a[href*=\"login\"]",
+      "div[data-testid=\"login-banner\"]"
+    ],
+    "captcha": [
+      "#cf-turnstile",
+      "iframe[src*=\"challenges.cloudflare.com\"]",
+      "iframe[src*=\"recaptcha\"]",
+      ".arkose-box"
+    ],
+    "composer": [
+      "#prompt-textarea",
+      "div#prompt-textarea[contenteditable=\"true\"]",
+      "div[contenteditable=\"true\"][data-placeholder]",
+      "div[role=\"textbox\"][contenteditable=\"true\"]",
+      "textarea#prompt-textarea",
+      "textarea[data-id=\"root\"]"
+    ],
+    "sendButton": [
+      "button[data-testid=\"send-button\"]",
+      "button[aria-label=\"Send prompt\"]",
+      "button[aria-label=\"Send message\"]",
+      "button[aria-label*=\"Send\"]"
+    ],
+    "stopButton": [
+      "button[data-testid=\"stop-button\"]",
+      "button[aria-label=\"Stop streaming\"]",
+      "button[aria-label=\"Stop generating\"]",
+      "button[aria-label*=\"Stop\"]"
+    ],
+    "newChatButton": [
+      "a[href=\"/\"]",
+      "button[aria-label=\"New chat\"]",
+      "a[data-testid=\"create-new-chat-button\"]",
+      "button[data-testid=\"new-chat-button\"]"
+    ],
+    "assistantMessage": [
+      "[data-message-author-role=\"assistant\"]",
+      "article[data-testid^=\"conversation-turn-\"]:has([data-message-author-role=\"assistant\"])",
+      "div.agent-turn",
+      "div.markdown.prose"
+    ],
+    "markdownContainer": [
+      ".markdown",
+      ".prose",
+      "[data-message-author-role=\"assistant\"]"
+    ]
+  }
+}
