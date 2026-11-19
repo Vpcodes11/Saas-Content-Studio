@@ -21,13 +21,13 @@ export function AestheticRoadmap() {
       num: 3,
       title: 'Gemini Adapter + Side-by-Side Compare',
       desc: 'gemini.google.com session adapter, dual generation, split-view comparison UI.',
-      status: 'active',
+      status: 'completed',
     },
     {
       num: 4,
       title: 'Data Ingestion & Product Brief',
       desc: 'GitHub API crawler, @mozilla/readability doc extractor, file uploads (PDF/DOCX/MD/TXT), notes, AI-generated Product Brief.',
-      status: 'pending',
+      status: 'active',
     },
     {
       num: 5,
@@ -71,8 +71,8 @@ export function AestheticRoadmap() {
               <p className="text-xs text-slate-400">Strict phased delivery order (Steps 1 &rarr; 8)</p>
             </div>
           </div>
-          <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 uppercase tracking-wider">
-            Step 3 Active
+          <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20 uppercase tracking-wider">
+            Step 4 Active
           </span>
         </div>
 

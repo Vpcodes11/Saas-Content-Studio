@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { PinterestHeader } from '@/components/PinterestHeader';
 import { PinterestHero } from '@/components/PinterestHero';
 import { PinterestBentoPins } from '@/components/PinterestBentoPins';
+import { ProductBriefStudio } from '@/components/ProductBriefStudio';
 import { SideBySideCompare } from '@/components/SideBySideCompare';
 import { ChatGPTLiveRunner } from '@/components/ChatGPTLiveRunner';
 import { ExtensionStudioDeck } from '@/components/ExtensionStudioDeck';
@@ -42,12 +43,21 @@ export default function HomePage() {
     }
   };
 
+  const scrollToBrief = () => {
+    const el = document.getElementById('product-brief-studio');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const handleFilterSelect = (filterId: string) => {
     setActiveFilter(filterId);
     if (filterId === 'runner') {
       scrollToRunner();
     } else if (filterId === 'compare') {
       scrollToCompare();
+    } else if (filterId === 'brief') {
+      scrollToBrief();
     }
   };
 
@@ -79,6 +89,14 @@ export default function HomePage() {
           filter={activeFilter}
           onSendPing={() => sendPing()}
         />
+
+        {/* Step 4: Data Ingestion & Product Brief Studio */}
+        <section className="space-y-4 pt-2">
+          <ProductBriefStudio
+            extensionId={extensionId}
+            extensionStatus={extensionStatus}
+          />
+        </section>
 
         {/* Step 3: Side-by-Side Arena (ChatGPT vs Gemini) */}
         <section id="side-by-side-section" className="space-y-4 pt-2">

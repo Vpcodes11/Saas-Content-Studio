@@ -27,6 +27,7 @@ export function PinterestHeader({
 }: PinterestHeaderProps) {
   const filters = [
     { id: 'all', label: 'All Inspirations' },
+    { id: 'brief', label: '📖 Ingestion & Brief' },
     { id: 'compare', label: '⚡ Compare Arena' },
     { id: 'chatgpt', label: 'ChatGPT Threads' },
     { id: 'gemini', label: 'Gemini Briefs' },
@@ -51,8 +52,8 @@ export function PinterestHeader({
                 <span className="font-extrabold text-base tracking-tight text-white flex items-center gap-1.5 font-sans">
                   SaaS Content Studio
                 </span>
-                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-gradient-to-r from-sky-500/20 via-purple-500/20 to-amber-500/20 text-sky-300 border border-sky-400/30 uppercase tracking-wider">
-                  Step 3 &bull; ChatGPT + Gemini Arena
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-gradient-to-r from-sky-500/20 via-amber-500/20 to-purple-500/20 text-amber-300 border border-amber-400/30 uppercase tracking-wider">
+                  Step 4 &bull; Ingestion &amp; Product Brief
                 </span>
               </div>
               <p className="text-[11px] text-slate-400 hidden sm:block">
