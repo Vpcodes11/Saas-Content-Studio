@@ -29,6 +29,7 @@ export interface ExtensionJobResult {
   jobId: string;
   status: 'completed' | 'failed' | 'paused';
   resultMarkdown?: string;
+  mediaUrls?: string[];
   error?: string;
   method: 'direct' | 'bridge';
 }
@@ -224,6 +225,7 @@ export class ExtensionClient {
                 jobId: job.id,
                 status: response.status,
                 resultMarkdown: response.resultMarkdown,
+                mediaUrls: response.mediaUrls || [],
                 error: response.error,
                 method: 'direct',
               });
@@ -293,6 +295,7 @@ export class ExtensionClient {
               jobId: job.id,
               status: res.status,
               resultMarkdown: res.resultMarkdown,
+              mediaUrls: res.mediaUrls || [],
               error: res.error,
               method: 'bridge',
             });

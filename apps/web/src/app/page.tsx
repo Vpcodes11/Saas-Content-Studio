@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import { PinterestHeader } from '@/components/PinterestHeader';
 import { PinterestHero } from '@/components/PinterestHero';
 import { PinterestBentoPins } from '@/components/PinterestBentoPins';
+import { TemplatesAndLibraryStudio } from '@/components/TemplatesAndLibraryStudio';
+import { PipelineStudio } from '@/components/PipelineStudio';
 import { ProductBriefStudio } from '@/components/ProductBriefStudio';
 import { SideBySideCompare } from '@/components/SideBySideCompare';
 import { ChatGPTLiveRunner } from '@/components/ChatGPTLiveRunner';
@@ -50,6 +52,20 @@ export default function HomePage() {
     }
   };
 
+  const scrollToTemplates = () => {
+    const el = document.getElementById('templates-library-studio');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const scrollToPipeline = () => {
+    const el = document.getElementById('pipeline-studio');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const handleFilterSelect = (filterId: string) => {
     setActiveFilter(filterId);
     if (filterId === 'runner') {
@@ -58,6 +74,10 @@ export default function HomePage() {
       scrollToCompare();
     } else if (filterId === 'brief') {
       scrollToBrief();
+    } else if (filterId === 'templates') {
+      scrollToTemplates();
+    } else if (filterId === 'pipeline') {
+      scrollToPipeline();
     }
   };
 
@@ -93,6 +113,22 @@ export default function HomePage() {
         {/* Step 4: Data Ingestion & Product Brief Studio */}
         <section className="space-y-4 pt-2">
           <ProductBriefStudio
+            extensionId={extensionId}
+            extensionStatus={extensionStatus}
+          />
+        </section>
+
+        {/* Step 5: Content Templates & Generation Library */}
+        <section className="space-y-4 pt-2">
+          <TemplatesAndLibraryStudio
+            extensionId={extensionId}
+            extensionStatus={extensionStatus}
+          />
+        </section>
+
+        {/* Steps 6 & 7: Multi-Model Pipelines & Reliability Suite */}
+        <section className="space-y-4 pt-2">
+          <PipelineStudio
             extensionId={extensionId}
             extensionStatus={extensionStatus}
           />

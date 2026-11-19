@@ -1,0 +1,11 @@
+{
+  "newProjectBtn": "button[aria-label*='New project'], button[aria-label*='Create'], a[href*='/project/new'], button:has-text('New project'), div[role='button']:has-text('New project')",
+  "scenePromptInput": "textarea[placeholder*='Describe your video'], textarea[placeholder*='prompt'], div[contenteditable='true'], textarea",
+  "settingsDropdown": "button[aria-label*='Aspect ratio'], button[aria-label*='Settings'], div[role='combobox']",
+  "generateBtn": "button[aria-label*='Generate'], button:has-text('Generate'), button[data-testid='generate-button'], button:has-text('Create video')",
+  "renderingIndicator": "div[role='progressbar'], span:has-text('Generating'), span:has-text('Rendering'), div[class*='loading'], mat-progress-bar",
+  "videoPlayer": "video, video source, div[data-testid='video-player'] video",
+  "downloadBtn": "button[aria-label*='Download'], a[download], button:has-text('Download'), button[data-testid='download-video']",
+  "authWall": "div[class*='sign-in'], a[href*='accounts.google.com'], button:has-text('Sign in')",
+  "captcha": "iframe[src*='recaptcha'], iframe[src*='challenges.cloudflare']"
+}

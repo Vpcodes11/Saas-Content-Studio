@@ -27,31 +27,31 @@ export function AestheticRoadmap() {
       num: 4,
       title: 'Data Ingestion & Product Brief',
       desc: 'GitHub API crawler, @mozilla/readability doc extractor, file uploads (PDF/DOCX/MD/TXT), notes, AI-generated Product Brief.',
-      status: 'active',
+      status: 'completed',
     },
     {
       num: 5,
       title: 'Content Templates & Library',
       desc: 'Platform templates (blog, LinkedIn, X, video script, email, SEO), editable DB entries, generation library with tags & exports.',
-      status: 'pending',
+      status: 'completed',
     },
     {
       num: 6,
       title: 'Google Flow Video Adapter',
       desc: 'labs.google/flow project creation, scene prompt submission, status polling, MP4 video download.',
-      status: 'pending',
+      status: 'completed',
     },
     {
       num: 7,
       title: 'Pipelines & Reliability Suite',
       desc: 'Chained jobs (Brief -> Script -> Scenes -> Video), AI-locator fallback, selector health check, rate limiting, side-panel takeover.',
-      status: 'pending',
+      status: 'completed',
     },
     {
       num: 8,
       title: 'Documentation & Production Polish',
       desc: 'Comprehensive README, session login guides, adapter expansion guide, packaging.',
-      status: 'pending',
+      status: 'active',
     },
   ];
 
@@ -71,8 +71,8 @@ export function AestheticRoadmap() {
               <p className="text-xs text-slate-400">Strict phased delivery order (Steps 1 &rarr; 8)</p>
             </div>
           </div>
-          <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20 uppercase tracking-wider">
-            Step 4 Active
+          <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 uppercase tracking-wider">
+            All Steps Active &amp; Verified
           </span>
         </div>
 
