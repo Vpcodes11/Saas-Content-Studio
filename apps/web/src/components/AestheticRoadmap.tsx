@@ -15,13 +15,13 @@ export function AestheticRoadmap() {
       num: 2,
       title: 'ChatGPT Adapter End-to-End',
       desc: 'Send "Say hello" from web app, automate chatgpt.com session with realistic human delays & DOM extraction, persist result into DB.',
-      status: 'active',
+      status: 'completed',
     },
     {
       num: 3,
       title: 'Gemini Adapter + Side-by-Side Compare',
       desc: 'gemini.google.com session adapter, dual generation, split-view comparison UI.',
-      status: 'pending',
+      status: 'active',
     },
     {
       num: 4,
@@ -71,8 +71,8 @@ export function AestheticRoadmap() {
               <p className="text-xs text-slate-400">Strict phased delivery order (Steps 1 &rarr; 8)</p>
             </div>
           </div>
-          <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 uppercase tracking-wider">
-            Step 2 Active
+          <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 uppercase tracking-wider">
+            Step 3 Active
           </span>
         </div>
 

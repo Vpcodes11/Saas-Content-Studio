@@ -1,0 +1,65 @@
+{
+  "site": "gemini",
+  "url": "https://gemini.google.com/app",
+  "selectors": {
+    "loginWall": [
+      "a[href*=\"accounts.google.com\"]",
+      "a[href*=\"ServiceLogin\"]",
+      "button[aria-label*=\"Sign in\" i]",
+      ".sign-in-button",
+      "div[data-test-id=\"sign-in-button\"]"
+    ],
+    "captcha": [
+      "#recaptcha",
+      "iframe[src*=\"recaptcha\"]",
+      "iframe[src*=\"challenges.cloudflare.com\"]"
+    ],
+    "composer": [
+      "div.ql-editor[contenteditable=\"true\"]",
+      "rich-textarea div[contenteditable=\"true\"]",
+      "div[role=\"textbox\"][contenteditable=\"true\"]",
+      "div[aria-label*=\"Enter a prompt\" i]",
+      "div[aria-label*=\"Ask Gemini\" i]",
+      "textarea[aria-label*=\"prompt\" i]",
+      "div[data-placeholder][contenteditable=\"true\"]",
+      "rich-textarea"
+    ],
+    "sendButton": [
+      "button[aria-label*=\"Send prompt\" i]",
+      "button[aria-label*=\"Send message\" i]",
+      "button.send-button",
+      "button[data-test-id=\"send-button\"]",
+      "button:has(mat-icon[fonticon=\"send\"])",
+      "button.send-button-container"
+    ],
+    "stopButton": [
+      "button[aria-label*=\"Stop response\" i]",
+      "button[aria-label*=\"Stop generating\" i]",
+      "button[aria-label*=\"Stop\" i]",
+      "mat-progress-bar",
+      ".loading-indicator",
+      ".sparkle-animation"
+    ],
+    "newChatButton": [
+      "button[aria-label*=\"New chat\" i]",
+      "div[aria-label*=\"New chat\" i]",
+      "a[href*=\"/app\"]",
+      "[data-test-id=\"new-chat-button\"]",
+      "button[data-tooltip*=\"New chat\" i]"
+    ],
+    "assistantMessage": [
+      "model-response",
+      "message-content",
+      "div[data-test-id=\"model-response-text\"]",
+      ".response-container",
+      ".model-response-text",
+      "div.markdown"
+    ],
+    "markdownContainer": [
+      ".model-response-text",
+      "message-content",
+      ".markdown",
+      "model-response"
+    ]
+  }
+}

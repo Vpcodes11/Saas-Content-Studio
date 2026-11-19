@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { PinterestHeader } from '@/components/PinterestHeader';
 import { PinterestHero } from '@/components/PinterestHero';
 import { PinterestBentoPins } from '@/components/PinterestBentoPins';
+import { SideBySideCompare } from '@/components/SideBySideCompare';
 import { ChatGPTLiveRunner } from '@/components/ChatGPTLiveRunner';
 import { ExtensionStudioDeck } from '@/components/ExtensionStudioDeck';
 import { DatabaseStudioCard } from '@/components/DatabaseStudioCard';
@@ -34,10 +35,19 @@ export default function HomePage() {
     }
   };
 
+  const scrollToCompare = () => {
+    const el = document.getElementById('side-by-side-section');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const handleFilterSelect = (filterId: string) => {
     setActiveFilter(filterId);
     if (filterId === 'runner') {
       scrollToRunner();
+    } else if (filterId === 'compare') {
+      scrollToCompare();
     }
   };
 
@@ -69,6 +79,14 @@ export default function HomePage() {
           filter={activeFilter}
           onSendPing={() => sendPing()}
         />
+
+        {/* Step 3: Side-by-Side Arena (ChatGPT vs Gemini) */}
+        <section id="side-by-side-section" className="space-y-4 pt-2">
+          <SideBySideCompare
+            extensionId={extensionId}
+            extensionStatus={extensionStatus}
+          />
+        </section>
 
         {/* Step 2: ChatGPT Adapter End-to-End Runner */}
         <section className="space-y-4 pt-2">

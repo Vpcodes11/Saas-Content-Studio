@@ -51,7 +51,7 @@ export async function POST(request: Request) {
     }
 
     if (action === 'complete') {
-      const { jobId, status: jobStatus, resultMarkdown, error } = body;
+      const { jobId, status: jobStatus, resultMarkdown, error, title } = body;
 
       if (!jobId) {
         return NextResponse.json({ status: 'error', message: 'jobId is required' }, { status: 400 });
@@ -69,11 +69,18 @@ export async function POST(request: Request) {
 
       let genId = null;
       if (jobStatus === 'completed' && resultMarkdown) {
+        const [jobRecord] = await db.select().from(jobs).where(eq(jobs.id, jobId)).limit(1);
+        const modelLabel = jobRecord?.targetSite === 'gemini' 
+          ? 'Gemini' 
+          : jobRecord?.targetSite === 'flow' 
+          ? 'Google Flow' 
+          : 'ChatGPT';
+
         genId = `gen_${Date.now()}_${Math.random().toString(36).slice(2, 6)}`;
         await db.insert(generations).values({
           id: genId,
           jobId,
-          title: `ChatGPT Response (${new Date().toLocaleTimeString()})`,
+          title: title || `${modelLabel} Response (${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })})`,
           contentMarkdown: resultMarkdown,
           createdAt: Date.now(),
         });
@@ -84,6 +91,24 @@ export async function POST(request: Request) {
         jobId,
         generationId: genId,
         savedToDb: true,
+      });
+    }
+
+    if (action === 'favorite') {
+      const { generationId, isFavorite = 1 } = body;
+      if (!generationId) {
+        return NextResponse.json({ status: 'error', message: 'generationId is required' }, { status: 400 });
+      }
+
+      await db
+        .update(generations)
+        .set({ isFavorite: Number(isFavorite) })
+        .where(eq(generations.id, generationId));
+
+      return NextResponse.json({
+        status: 'ok',
+        generationId,
+        isFavorite,
       });
     }
 
